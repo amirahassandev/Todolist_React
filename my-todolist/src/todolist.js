@@ -9,75 +9,21 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { v4 as uuidv4 } from 'uuid';
+import { useContext } from 'react';
 
 import './style.css'
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: (theme.vars ?? theme).palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
-}));
-
-const initialTodoList = [
-    {
-        id: uuidv4(),
-        title: "title 1",
-        details: "details of todo 1",
-        isCompleted: false
-    },
-    {
-        id: uuidv4(),
-        title: "title2",
-        details: "details of todo 2",
-        isCompleted: false
-    }
-]
-
-
-function TodoListComponent(todoList) {
-    if (todoList && todoList.length > 0) {
-        const todos = todoList.map((todo) => (
-            <Todo
-                key={todo.id}
-                title={todo.title}
-                details={todo.details}
-                isCompleted={todo.isCompleted}
-            />
-        ));
-        return <>{todos}</>
-    }
-
-    return (
-        <p style={{ 
-            fontSize: "30px", 
-            color: "green", 
-            fontWeight: "bold" 
-        }}>
-            You don't have any task
-        </p>
-    );
-}
-
-
-
-
+import { ContextTodos } from './Contexts/ContextTodos';
 
 
 
 export default function Todolist(){
+    const {todo, setTodo} = useContext(ContextTodos)
     const [alignment, setAlignment] = useState('all');
-    const [todo, setTodo] = useState(initialTodoList);
     const [titleInput, setTitleInput] = useState("");
 
     const handleChange = (event, newAlignment) => {
         setAlignment(newAlignment);
     };
-
 
     function handleAddClick(){
         const newTodo = {
@@ -89,6 +35,43 @@ export default function Todolist(){
         setTodo([...todo, newTodo])
         setTitleInput("")
     }
+
+    function HandleCheckClick(todoId){
+        let updateTodo = todo.map((t) => {
+            if(t.id == todoId){
+                t.isCompleted = true
+            }
+            return t
+        })
+        setTodo(updateTodo)
+    }
+
+    function TodoListComponent(todoList) {
+        if (todoList && todoList.length > 0) {
+            const todos = todoList.map((t) => (
+                <Todo
+                    key={t.id}
+                    // title={todo.title}
+                    // details={todo.details}
+                    // isCompleted={todo.isCompleted}
+                    todo = {t}
+                    handleClick = {HandleCheckClick}
+                />
+            ));
+            return <>{todos}</>
+        }
+
+        return (
+            <p style={{ 
+                fontSize: "30px", 
+                color: "green", 
+                fontWeight: "bold" 
+            }}>
+                You don't have any task
+            </p>
+        );
+    }
+
 
     return (
       <Container maxWidth="sm" style={{backgroundColor: "white", height: "fit-content", paddingBottom: "30px", borderRadius: "10px"}}>
