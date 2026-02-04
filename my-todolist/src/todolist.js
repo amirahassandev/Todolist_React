@@ -36,16 +36,6 @@ export default function Todolist(){
         setTitleInput("")
     }
 
-    function HandleCheckClick(todoId){
-        let updateTodo = todo.map((t) => {
-            if(t.id == todoId){
-                t.isCompleted = true
-            }
-            return t
-        })
-        setTodo(updateTodo)
-    }
-
     function TodoListComponent(todoList) {
         if (todoList && todoList.length > 0) {
             const todos = todoList.map((t) => (
@@ -54,8 +44,7 @@ export default function Todolist(){
                     // title={todo.title}
                     // details={todo.details}
                     // isCompleted={todo.isCompleted}
-                    todo = {t}
-                    handleClick = {HandleCheckClick}
+                    todoContent = {t}
                 />
             ));
             return <>{todos}</>
