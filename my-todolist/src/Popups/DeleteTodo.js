@@ -13,7 +13,9 @@ export default function DeleteTodo({showDeletePopup, setShowDeletePopup, todoCon
     const {todo, setTodo} = useContext(ContextTodos);
 
     function HandleRemoveTask(){
-        setTodo(todo.filter(t => t.id != todoContent.id))
+        const updateTodos = todo.filter(t => t.id != todoContent.id)
+        setTodo(updateTodos)
+        localStorage.setItem("todo", JSON.stringify(updateTodos))
     }
 
     function handleClose(){

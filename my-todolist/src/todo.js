@@ -21,13 +21,14 @@ export default function Todo({todoContent}){
 
 
     function HandleCheckClick(){
-        let updateTodo = todo.map((t) => {
+        let updateTodos = todo.map((t) => {
             if(t.id == todoContent.id){
                 t.isCompleted = true
             }
             return t
         })
-        setTodo(updateTodo)
+        setTodo(updateTodos)
+        localStorage.setItem("todo", JSON.stringify(updateTodos))
     }
 
 

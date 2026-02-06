@@ -14,14 +14,15 @@ export default function UpdateTodo({showUpdatePopup, setShowUpdatePopup, todoCon
     const [UpdateTodo, setUpdateTodo] = useState(todoContent)
 
     function HandleUpdateTask(){
-        const updatedTodo = todo.map((t) => {
+        const updateTodos = todo.map((t) => {
             if(t.id == UpdateTodo.id){
                 return {...t, title: UpdateTodo.title, details: UpdateTodo.details}
             }else{
                 return t
             }
         })
-        setTodo(updatedTodo)
+        setTodo(updateTodos)
+        localStorage.setItem("todo", JSON.stringify(updateTodos))
     }
 
     function handleClose(){

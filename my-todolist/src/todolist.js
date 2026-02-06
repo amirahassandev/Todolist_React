@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Container from '@mui/material/Container';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -32,9 +32,15 @@ export default function Todolist(){
             details: "",
             isCompleted: false
         }
-        setTodo([...todo, newTodo])
+        const updateTodos = [...todo, newTodo]
+        setTodo(updateTodos)
+        localStorage.setItem("todo", JSON.stringify(updateTodos))
         setTitleInput("")
     }
+
+    useEffect(() => {
+        setTodo(JSON.parse(localStorage.getItem("todo")))
+    }, [setTodo])
 
     function TodoListComponent(todoList) {
         if (todoList && todoList.length > 0) {
