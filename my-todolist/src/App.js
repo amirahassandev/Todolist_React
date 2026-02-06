@@ -35,25 +35,19 @@ const theme = createTheme({
   }
 })
 
-const initialTodoList = [
-    {
-        id: uuidv4(),
-        title: "title 1",
-        details: "details of todo 1",
-        isCompleted: false
-    },
-    {
-        id: uuidv4(),
-        title: "title2",
-        details: "details of todo 2",
-        isCompleted: false
-    }
-  ]
+// const initialTodoList = [
+//     {
+//         id: uuidv4(),
+//         title: "title 1",
+//         details: "details of todo 1",
+//         isCompleted: false
+//     },
+//   ]
 
 
 
 function App() {
-  const [todo, setTodo] = useState(initialTodoList);
+  const [todo, setTodo] = useState([]);
   
 
   return (
