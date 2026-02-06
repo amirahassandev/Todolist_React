@@ -25,6 +25,7 @@ const initialTodoList = [
 
 function App() {
   const [todo, setTodo] = useState(initialTodoList);
+  localStorage.setItem("todo", JSON.stringify(todo))
 
   return (
     <div className="App" style={{backgroundColor: "#19161f", height: "100vh", display: 'flex', justifyContent: "center", alignItems: "center"}}>

@@ -11,10 +11,17 @@ import { ContextTodos } from '../Contexts/ContextTodos';
 
 export default function UpdateTodo({showUpdatePopup, setShowUpdatePopup, todoContent}){
     const {todo, setTodo} = useContext(ContextTodos);
-    const [AtodoContent, setTodoContent] = useState(todoContent)
+    const [UpdateTodo, setUpdateTodo] = useState(todoContent)
 
     function HandleUpdateTask(){
-        // setTodo(todo.filter(t => t.id != todoContent.id))
+        const updatedTodo = todo.map((t) => {
+            if(t.id == UpdateTodo.id){
+                return {...t, title: UpdateTodo.title, details: UpdateTodo.details}
+            }else{
+                return t
+            }
+        })
+        setTodo(updatedTodo)
     }
 
     function handleClose(){
@@ -33,10 +40,10 @@ export default function UpdateTodo({showUpdatePopup, setShowUpdatePopup, todoCon
             </DialogTitle>
             <DialogContent>
                 <label>Title</label>
-                <input value={AtodoContent.title} />
+                <input value={UpdateTodo.title} onChange={(e) => {setUpdateTodo({...UpdateTodo, title:e.target.value})}} />
                 <br />
                 <label>Details</label>
-                <input value={AtodoContent.details} />
+                <input value={UpdateTodo.details} onChange={(e) => {setUpdateTodo({...UpdateTodo, details:e.target.value})}} />
             </DialogContent>
             <DialogActions>
                 <Button onClick={() => handleClose()}>Close</Button>
