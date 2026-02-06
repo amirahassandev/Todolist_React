@@ -49,8 +49,8 @@ export default function Todo({todoContent}){
 
         <Card style={{maxWidth: "100%", backgroundColor: "#06064c", display: "flex", padding: "0 20px", justifyContent: "space-between"}} className='todoCard'>
             <CardContent>
-                <p style={{color: "white", fontSize: "14px"}}>{todoContent.title}</p>
-                <Typography variant="body2" sx={{ color: '#ffffffe3', fontSize: "12px" }}>
+                <p style={{color: "white", fontSize: "14px", textDecoration: todoContent.isCompleted? "line-through" : "none" }}>{todoContent.title}</p>
+                <Typography variant="body2" sx={{ color: '#ffffffe3', fontSize: "12px"}}>
                   {todoContent.details}
                 </Typography>
             </CardContent>
