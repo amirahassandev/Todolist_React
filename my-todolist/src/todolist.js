@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Container from '@mui/material/Container';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -47,18 +47,33 @@ export default function Todolist(){
         }
     }, [])
 
+    const filterCompleted = useMemo(() => {
+        return todo.filter((t) => {
+            console.log("Completed")
+            return t.isCompleted
+        }); 
+    }, [todo])
+
+
+    const filterUnCompleted = useMemo(() => {
+        return todo.filter((t) => {
+            console.log("unCompleted")
+            return !t.isCompleted
+        }); 
+    }, [todo])
+
+
     function TodoListComponent(todoList) {
         if (todoList && todoList.length > 0){
             let todos = todoList;
 
             if(showTypeTodo == 'completed'){
-                todos = todoList.filter(t => t.isCompleted)
+                todos = filterCompleted
             }
-
+            
             else if(showTypeTodo == 'unCompleted'){
-                todos = todoList.filter(t => !t.isCompleted)
+                todos = filterUnCompleted
             }
-
             else{
 
             }
