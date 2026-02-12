@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/Todolist_React/static/css/main.aedd26f8.css",
-    "main.js": "/Todolist_React/static/js/main.c49ba631.js",
+    "main.js": "/Todolist_React/static/js/main.b39284c3.js",
     "static/js/453.e40c1cf0.chunk.js": "/Todolist_React/static/js/453.e40c1cf0.chunk.js",
     "static/media/Oswald-Bold.ttf": "/Todolist_React/static/media/Oswald-Bold.35f5cd6d606607dd9214.ttf",
     "static/media/Oswald-Medium.ttf": "/Todolist_React/static/media/Oswald-Medium.8eb8567dd9afeda038d7.ttf",
     "static/media/logo.svg": "/Todolist_React/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/Todolist_React/index.html",
     "main.aedd26f8.css.map": "/Todolist_React/static/css/main.aedd26f8.css.map",
-    "main.c49ba631.js.map": "/Todolist_React/static/js/main.c49ba631.js.map",
+    "main.b39284c3.js.map": "/Todolist_React/static/js/main.b39284c3.js.map",
     "453.e40c1cf0.chunk.js.map": "/Todolist_React/static/js/453.e40c1cf0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aedd26f8.css",
-    "static/js/main.c49ba631.js"
+    "static/js/main.b39284c3.js"
   ]
 }
