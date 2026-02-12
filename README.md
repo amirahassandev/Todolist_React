@@ -3,7 +3,7 @@
 A simple and clean Todo List application built with React, Material UI, and Context API.  
 The app allows users to manage daily tasks easily, with data stored in localStorage.
 
-**Live Demo:** https://poetic-melomakarona-6b80e8.netlify.app/
+**Live Demo:** https://amirahassandev.github.io/Todolist_React/
 
 ---
 
