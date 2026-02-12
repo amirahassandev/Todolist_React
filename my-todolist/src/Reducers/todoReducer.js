@@ -52,7 +52,10 @@ export function TodoReducer(currentState, action){
             const todosStorage = JSON.parse(localStorage.getItem("todo"))
             if (todosStorage) {
                 return todosStorage
+            } else {
+                return currentState  // لو مفيش بيانات
             }
+
 
         default: {
             throw Error ("Unknown Action " + action.type)
